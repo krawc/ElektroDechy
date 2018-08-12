@@ -1,0 +1,432 @@
+@import 'theme-colors';
+@import 'slick-theme';
+@import 'slick';
+@import 'react-big-calendar';
+@import 'CalendarStyle';
+@import 'Steps';
+@import 'iconfont';
+@import 'stepzilla';
+
+
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto|Lobster');
+@import url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+
+$theme-font: Roboto, verdana, sans-serif;
+
+body {
+  margin: 0px;
+  width: 100vw;
+  // overflow-x: hidden;
+  font: $theme-font;
+  background-color: $themeColor-Light;
+  h1, h2 {
+      color: $themeColor-Dark
+  }
+  p {
+    margin: 0px;
+  }
+
+
+  .menu-links {
+    top: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    ul, ol {
+      padding-left: 0px;
+    }
+  }
+
+  /*:after elements cannot be styled with JS, hence the separate stylesheet*/
+
+  .headerVideo{
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: rgba(127, 127, 127, 0.5);
+      background-image: radial-gradient(black 33%, transparent 33%);
+      background-size: 3px 3px;
+    }
+  }
+
+  .redOutline:before,
+  .redOutline:after {
+    content: attr(title);
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    padding: 50px 0px 0px;
+  }
+  .redOutline:before {
+    -webkit-text-stroke: 18px #f22626;
+    color: #f22626;
+  }
+  .redOutline:after {
+    color: #fff;
+  }
+
+  input[name=newsletter-email]::placeholder {
+    color: #fff;
+  }
+
+  //CALENDAR TABLE CELLS (hover)
+
+  .slot-available:hover,
+  .slot-available.picked {
+    background-color: #ff0000;
+    position: relative;
+  }
+
+  .slot-available.picked:before {
+    position: absolute;
+    content: attr(data-prettydate);
+    background: url('../../static/images/callout.svg');
+    width: 150%;
+    height: 100px;
+    top: -70px;
+    left: -25%;
+    display: flex;
+    line-height: 70px;
+    color: #fff;
+    justify-content: center;
+    /* align-items: center; */
+    z-index: 100;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  //
+  // .slot-available:before {
+  //   content: attr(data-prettydate);
+  // }
+
+  .multi-step {
+    position: relative;
+    .footer-buttons {
+      display: flex;
+      justify-content: space-around;
+    }
+    .btn-prev {
+      order: 2;
+      display: flex;
+      align-items: center;
+      border: 0px;
+      font-size: 1.5em;
+      font-family: Oswald, sans-serif;
+      color: #fff;
+      background: transparent;
+      &:after {
+        content: "\f3d1";
+        right: 3em;
+        font-size: 1.5em;
+        margin: 0.3em;
+        color: #fff;
+        font-family: Ionicons;
+      }
+    }
+    .btn-next {
+      order: 1;
+      display: flex;
+      align-items: center;
+      border: 0px;
+      font-size: 1.5em;
+      font-family: Oswald, sans-serif;
+      color: #fff;
+      background: transparent;
+      &:before {
+        content: "\f3cf";
+        left: 3em;
+        font-size: 1.5em;
+        margin: 0.3em;
+        color: #fff;
+        font-family: Ionicons;
+      }
+    }
+  }
+
+  .single-term{
+     i {
+
+      svg {
+        width: 100%;
+      }
+    }
+    &:hover {
+      background: #000!important;
+      position: relative;
+      color: #fff;
+      path {
+        fill: #fff;
+      }
+      &:before {
+        position: absolute;
+        content: attr(data-description);
+        background: url('../../static/images/callout.svg');
+        width: calc(150% - 40px);
+        height: 100px;
+        top: -70px;
+        left: -25%;
+        display: flex;
+        font-size: 13px;
+        font-family: Roboto, sans-serif;
+        padding: 20px 20px 30px;
+        color: #fff;
+        justify-content: center;
+        z-index: 100;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+  // }
+
+  .paypal-button {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 15px;
+    margin: 0px -30px;
+  }
+
+
+  /*INDEX PAGE STYLES (Refactored to vanilla css as responsive server-side rendering doesn't seem to work)*/
+
+
+  .h1headerStyle {
+    font-size: 4em;
+    color: #fff;
+    margin: 1em auto;
+    font-size: 2.5em;
+    text-align: center;
+    max-width: initial;
+  }
+
+  .welcomePageStyle {
+    flex: 0 0 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .welcomePageSideStyle {
+    flex: 0 0 100%;
+    padding: 0%;
+    font-family: Roboto, sans-serif;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2em 0em;
+  }
+
+  .boardHeadingStyle {
+    font-family: Lobster, sans-serif;
+    font-size: 2em;
+    margin: 0 0 0.5em;
+    color: #fff;
+    -webkit-text-stroke: 0.8px #222;
+  }
+
+  .boardCopyStyle {
+    margin: 0em;
+    font-family: Roboto, sans-serif
+  }
+
+  .routeHeadingStyle {
+    font-family: Lobster, sans-serif;
+    margin: 0.5em 0em;
+    color: #fff;
+    font-size: 1.5em;
+  }
+
+  .bigAssRedHeader {
+    text-align: center;
+    padding: 50px 0px 0px;
+    font-family: Oswald, sans-serif;
+    color: #fff;
+    font-size: 2em;
+    position: relative;
+  }
+
+  .bigAssRedHeader {
+    font-size: 3em;
+  }
+
+  .headerImageStyle {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .headerStyle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    font-family: Oswald;
+    text-transform: uppercase;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .buttonStyle {
+    padding: 6px 12px;
+    font-family: Lobster;
+    color: #fff;
+    font-size: 1.2em;
+    background: #f22626;
+    border-radius: 3px;
+    border: 0px;
+  }
+
+  .newsletterFormStyle {
+    max-width: 40em;
+    margin: auto;
+    display: flex;
+    width: 100%;
+  }
+
+  .newsletterInputStyle {
+    font-size: 1em;
+    border: 2px solid #fff;
+    background: rgba(255, 255, 255, 0.35);
+    padding: 2%;
+    font-family: Roboto, sans-serif;
+    width: 48%;
+  }
+
+  .newsletterButtonStyle {
+    margin-left: 2px;
+    border: 0px;
+    font-size: 0.9em;
+    font-family: Oswald, sans-serif;
+    width: 48%;
+  }
+
+  .welcomePagesContStyle {
+    display: flex;
+    flex-wrap: wrap;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+
+  .boardsRoutesStyle {
+    background-size: 100%;
+    width: 100%;
+    background-color: #111;
+    background-repeat: no-repeat;
+  }
+
+  .newsletterStyle {
+    background-size: 100%;
+    text-align: center;
+    padding: 4em 0.5em;
+    background-size: cover;
+  }
+
+  .payment-option-active {
+    border: 2px solid #fff;
+    box-sizing: border-box;
+  }
+
+
+  @media screen and (min-width: 768px) {
+
+    .h1headerStyle {
+      margin: 1em auto;
+      font-size: 4em;
+      max-width: 60vw;
+    }
+
+    .welcomePageSideStyle {
+      flex: 0 0 44%;
+      padding: 3%;
+      margin: initial;
+    }
+
+    .boardHeadingStyle {
+    font-size: 2.5em;
+    }
+
+    .routeHeadingStyle {
+      font-size: 2em;
+    }
+
+    .newsletterInputStyle {
+      flex: 0 0 80%;
+      fontSize: 1.3em;
+      padding: 5px;
+      width: initial;
+    }
+
+    .newsletterButtonStyle {
+      flex: 0 0 20%;
+      fontSize: 1.1em;
+      width: initial;
+    }
+
+    .newsletterStyle {
+      padding: 4em;
+    }
+
+  }
+
+
+    @-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes thunder {
+    from {
+      clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+    }
+    to {
+      clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%);
+    }
+  }
+
+
+
+
+  @media screen and (max-width: 767px) {
+    .slot-available.picked:before {
+      width: 75%;
+      height: 100px;
+      top: -70px;
+      left: 0%;
+    }
+
+    .footer-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin: auto;
+    }
+
+    .multi-step {
+      position: relative;
+      .btn-prev, .btn-next {
+        position: relative;
+      }
+    }
+  }
+}
