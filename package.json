@@ -7,7 +7,8 @@
         "dev": "node server.js",
         "build": "next build",
         "start": "next start",
-	  	"test": "echo \"Error: no test specified\" && exit 1"
+	  	"heroku-postbuild": "npm run build",
+	  	"test": "echo \"Error: no test specified\" && exit 1",
         "docker:build": "docker build -t frontend .",
         "docker:clean": "docker rm -f frontend || true",
         "docker:run": "docker run -p 3000:3000 --name frontend frontend",
