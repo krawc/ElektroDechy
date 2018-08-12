@@ -131,7 +131,7 @@ class Index extends Component {
         const eboards = this.props.eboards.map((post, index) => {
             return (
               <div className="eboard" key={index}>
-                <img src={post._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url}/>
+                <img src={post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}/>
                 <h1 className="boardHeadingStyle">{post.title.rendered}</h1>
                 <div className="boardCopyStyle" dangerouslySetInnerHTML={{
                       __html: post.content.rendered
@@ -144,7 +144,7 @@ class Index extends Component {
             return (
               <div className="route" key={index}>
                 <h1 className="routeHeadingStyle">{post.title.rendered}</h1>
-                <img src={post._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url}/>
+                <img src={post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}/>
                 <div className="boardCopyStyle" dangerouslySetInnerHTML={{
                       __html: post.content.rendered
                     }}/>
@@ -164,7 +164,7 @@ class Index extends Component {
                         }}/>
                     </div>
                     <div className="welcomePageSideStyle">
-                    <img style={{width: '100%'}}src={page._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url}/>
+                    <img style={{width: '100%'}}src={page._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}/>
                     </div>
                   </div>
               );
@@ -172,7 +172,7 @@ class Index extends Component {
               return (
                   <div className="welcomePageStyle" key={index}>
                     <div className="welcomePageSideStyle">
-                    <img style={{width: '100%'}}src={page._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url}/>
+                    <img style={{width: '100%'}}src={page._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}/>
                     </div>
                     <div className="welcomePageSideStyle">
                     <h1 style={{fontFamily: 'Oswald', fontSize: '2.2em', color: '#f22626'}}>{page.title.rendered}</h1>
