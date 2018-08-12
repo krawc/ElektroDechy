@@ -1,1 +1,1 @@
-export const Config = {apiUrl: 'http://localhost:8080', homeUrl: 'http://localhost:3000'}
+export const Config = {apiUrl: 'https://elektrodechy.000webhostapp.com', homeUrl: 'https://elektrodechy.herokuapp.com'}
